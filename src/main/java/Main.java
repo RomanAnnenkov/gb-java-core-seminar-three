@@ -2,6 +2,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -42,6 +43,8 @@ public class Main {
         for (Employee employee : employees) {
             employee.printInfo();
         }
+
+        Collections.sort(employees);
 
         salaryIncreaseForEmployees(employees, 45, 30000);
         System.out.println();
