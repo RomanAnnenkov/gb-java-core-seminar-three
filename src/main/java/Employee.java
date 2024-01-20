@@ -3,13 +3,15 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 //@Getter
 //@Setter
 @AllArgsConstructor
 //@EqualsAndHashCode
 //@ToString
 @Data
-public class Employee {
+public class Employee implements Comparable<Employee> {
     private String FIO;
     private String position;
     private String phone;
@@ -36,4 +38,9 @@ public class Employee {
         this.salary = salary.add(BigDecimal.valueOf(value));
     }
 
+    @Override
+    public int compareTo(Employee o) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return this.birthDate.format(formatter).compareTo(o.birthDate.format(formatter));
+    }
 }
